@@ -1,0 +1,57 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "Summer Dress",
+      "price": 49.99,
+      "category": "women",
+      "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400",
+      "description": "Beautiful summer dress for women"
+    },
+    {
+      "id": 2,
+      "name": "Men's T-Shirt",
+      "price": 29.99,
+      "category": "men",
+      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400",
+      "description": "Comfortable cotton t-shirt for men"
+    },
+    {
+      "id": 3,
+      "name": "Kids Sneakers",
+      "price": 39.99,
+      "category": "kids",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",
+      "description": "Colorful sneakers for kids"
+    },
+    {
+      "id": 4,
+      "name": "Women's Handbag",
+      "price": 79.99,
+      "category": "women",
+      "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400",
+      "description": "Elegant handbag for women"
+    },
+    {
+      "id": 5,
+      "name": "Men's Jeans",
+      "price": 59.99,
+      "category": "men",
+      "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400",
+      "description": "Classic denim jeans for men"
+    },
+    {
+      "id": 6,
+      "name": "Kids Jacket",
+      "price": 45.99,
+      "category": "kids",
+      "image": "https://images.unsplash.com/photo-1509005084666-3cbc75184cbb?w=400",
+      "description": "Warm jacket for children"
+    }
+  ],
+   "categories": [
+    { "id": "men", "name": "Men", "image": "https://images.unsplash.com/photo-1520975916090-3105956dac38?w=400" },
+    { "id": "women", "name": "Women", "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400" },
+    { "id": "kids", "name": "Kids", "image": "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=400" }
+  ]
+}
