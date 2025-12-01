@@ -14,6 +14,50 @@ import "swiper/css";
 import "swiper/css/scrollbar";
 
 const App = () => {
+  // Массив данных для карточек
+  const tourCards = [
+    {
+      id: 1,
+      image: a,
+      alt: "МОСКВА",
+      day: "10 дней",
+      finalPrice: "35 000₽",
+      tag: "10 до 20 ноября",
+    },
+    {
+      id: 2,
+      image: b,
+      alt: "САНКТ-ПЕТЕРБУРГ",
+      day: "15 дней",
+      finalPrice: "25 000 ₽",
+      tag: "12 до 16 марта",
+    },
+    {
+      id: 3,
+      image: c,
+      alt: "СОЧИ",
+      day: "15 дней",
+      finalPrice: "35 000 ₽",
+      tag: "5 до 11 февраля",
+    },
+    {
+      id: 4,
+      image: d,
+      alt: "КАЗАНЬ",
+      day: "15 дней",
+      finalPrice: "18 000 ₽",
+      tag: "16 до 22 ноября",
+    },
+    {
+      id: 5,
+      image: e,
+      alt: "КРЫМ",
+      day: "7 дней",
+      finalPrice: "28 000 ₽",
+      tag: "21 до 28 ноября",
+    },
+  ];
+
   return (
     <>
       <div className="">
@@ -102,211 +146,76 @@ const App = () => {
         {/* Секция горящих туров */}
         <div className="py-16 px-8">
           <div className="mb-12">
-            <h1 className="text-[24px] font-medium uppercase mb-2">горящие туры</h1>
-            <p className="text-[#1C1C1C] uppercase font-light text-lg">Поймайте момент</p>
+            <h1 className="text-[34px] font-bold uppercase mb-2 ml-[20%]">
+              горящие туры
+            </h1>
+            <p className="text-[#1C1C1C] text-[14px] uppercase font-extralight text-lg ml-[20%]">
+              Поймайте момент
+            </p>
           </div>
-          
-          {/* Swiper с отступом слева 60% */}
+
+          {/* Swiper с правильной настройкой ширины */}
           <div className="w-[80%] ml-auto">
             <Swiper
               spaceBetween={20}
               slidesPerView={3}
               modules={[Scrollbar]}
-              scrollbar={{ 
+              scrollbar={{
                 draggable: true,
                 hide: false,
+                snapOnRelease: true,
               }}
               breakpoints={{
                 320: {
                   slidesPerView: 1,
-                  spaceBetween: 10
+                  spaceBetween: 10,
                 },
                 768: {
                   slidesPerView: 2,
-                  spaceBetween: 15
+                  spaceBetween: 15,
                 },
                 1024: {
                   slidesPerView: 3,
-                  spaceBetween: 20
-                }
+                  spaceBetween: 20,
+                },
               }}
             >
-              {/* Карточка 1 - ЭФА МОСКВА */}
-              <SwiperSlide>
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-200">
-                  {/* Верхняя часть с изображением */}
-                  <div className="relative h-48 bg-gray-200">
-                    <img src={a} alt="МОСКВА" className="w-full h-full object-cover" />
-                    <div className="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded text-sm font-bold">
-                      -50%
-                    </div>
-                  </div>
-                  
-                  {/* Контент карточки */}
-                  <div className="p-4">
-                    {/* Заголовок ЭФА */}
-                    <div className="text-xs text-gray-500 uppercase mb-1">ЭФА</div>
-                    
-                    {/* Основной заголовок */}
-                    <h3 className="font-bold text-xl mb-2">МОСКВА</h3>
-                    
-                    {/* Цена и характеристики */}
-                    <div className="flex justify-between items-center mb-3">
-                      <span className="text-2xl font-bold text-gray-900">6x117</span>
-                      <span className="text-gray-500 line-through text-sm">5 x</span>
-                    </div>
-                    
-                    {/* Описание */}
-                    <div className="text-sm text-gray-600 mb-4 space-y-1">
-                      <p>Площа 2.0</p>
-                      <p>Животная пальцами перед ногой</p>
-                      <p>Часы топорище</p>
-                    </div>
-                    
-                    {/* Цена и метка */}
-                    <div className="flex justify-between items-center mb-3">
-                      <span className="text-green-600 font-bold text-lg">Бесплатно</span>
-                      <span className="text-blue-600 text-sm">Street model</span>
-                    </div>
-                    
-                    {/* Дополнительная информация */}
-                    <div className="text-xs text-gray-500 space-y-1">
-                      <p>представлен</p>
-                      <p>свой розетчик</p>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
+              {tourCards.map((card) => (
+                <SwiperSlide key={card.id}>
+                  {/* Компактная карточка с правильной шириной */}
+                  <div className="relative rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-200 h-[300px] w-full">
+                    {/* Фоновое изображение */}
+                    <img
+                      src={card.image}
+                      alt={card.alt}
+                      className="w-full h-full object-cover absolute inset-0"
+                    />
 
-              {/* Карточка 2 - ЗВА САНКТ-ПЕТЕРБУРГ */}
-              <SwiperSlide>
-                <div className="rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-200">
-                  <div className="relative h-48 bg-gray-200">
-                    <img src={b} alt="САНКТ-ПЕТЕРБУРГ" className="w-full h-full object-cover" />
-                    <div className="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded text-sm font-bold">
-                      -30%
-                    </div>
-                  </div>
-                  
-                  <div className="p-4">
-                    <div className="text-xs text-gray-500 uppercase mb-1">ЗВА</div>
-                    
-                    <h3 className="font-bold text-xl mb-2">САНКТ-ПЕТЕРБУРГ</h3>
-                    
-                    <div className="flex justify-between items-center mb-3">
-                      <span className="text-2xl font-bold text-gray-900">5x89</span>
-                      <span className="text-gray-500 line-through text-sm">4 x</span>
-                    </div>
-                    
-                    <div className="text-sm text-gray-600 mb-4 space-y-1">
-                      <p>Комфорт класс</p>
-                      <p>Все включено</p>
-                      <p>Экскурсии</p>
-                    </div>
-                    
-                    <div className="flex justify-between items-center">
-                      <span className="text-green-600 font-bold text-lg">25 000 ₽</span>
-                      <span className="text-blue-600 text-sm">Выгодно</span>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
+                    {/* Темный оверлей для лучшей читаемости текста */}
+                    <div className="absolute inset-0 bg-black bg-opacity-20"></div>
 
-              {/* Карточка 3 - СОЧИ */}
-              <SwiperSlide>
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-200">
-                  <div className="relative h-48 bg-gray-200">
-                    <img src={c} alt="СОЧИ" className="w-full h-full object-cover" />
-                    <div className="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded text-sm font-bold">
-                      -40%
-                    </div>
-                  </div>
-                  
-                  <div className="p-4">
-                    <h3 className="font-bold text-xl mb-2">СОЧИ</h3>
-                    
-                    <div className="flex justify-between items-center mb-3">
-                      <span className="text-2xl font-bold text-gray-900">8x156</span>
-                      <span className="text-gray-500 line-through text-sm">6 x</span>
-                    </div>
-                    
-                    <div className="text-sm text-gray-600 mb-4 space-y-1">
-                      <p>Премиум стель</p>
-                      <p>Бассейн и СПА</p>
-                      <p>Питание включено</p>
-                    </div>
-                    
-                    <div className="flex justify-between items-center">
-                      <span className="text-green-600 font-bold text-lg">35 000 ₽</span>
-                      <span className="text-blue-600 text-sm">Хитровое</span>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
+                    {/* Контент поверх изображения - компактный */}
+                    <div className="relative z-10 h-full flex flex-col justify-end p-4 text-white">
+                      {/* Категория (если есть) */}
 
-              {/* Карточка 4 */}
-              <SwiperSlide>
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-200">
-                  <div className="relative h-48 bg-gray-200">
-                    <img src={d} alt="Тур 4" className="w-full h-full object-cover" />
-                    <div className="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded text-sm font-bold">
-                      -25%
-                    </div>
-                  </div>
-                  
-                  <div className="p-4">
-                    <h3 className="font-bold text-xl mb-2">КАЗАНЬ</h3>
-                    
-                    <div className="flex justify-between items-center mb-3">
-                      <span className="text-2xl font-bold text-gray-900">4x76</span>
-                      <span className="text-gray-500 line-through text-sm">3 x</span>
-                    </div>
-                    
-                    <div className="text-sm text-gray-600 mb-4 space-y-1">
-                      <p>Экскурсионный</p>
-                      <p>Исторический центр</p>
-                      <p>Групповой тур</p>
-                    </div>
-                    
-                    <div className="flex justify-between items-center">
-                      <span className="text-green-600 font-bold text-lg">18 000 ₽</span>
-                      <span className="text-blue-600 text-sm">Популярно</span>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
+                      <div className="flex items-center gap-3">
+                        <div className="border-[white] border rounded-full px-4">
+                          <h1>{card.day}</h1>
+                        </div>
+                        <div className="border-[white] border rounded-full px-4">
+                          <h1>oт {card.finalPrice}</h1>
+                        </div>
+                      </div>
 
-              {/* Карточка 5 */}
-              <SwiperSlide>
-                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-200">
-                  <div className="relative h-48 bg-gray-200">
-                    <img src={e} alt="Тур 5" className="w-full h-full object-cover" />
-                    <div className="absolute top-3 left-3 bg-red-500 text-white px-3 py-1 rounded text-sm font-bold">
-                      -60%
+                      <h1 className="mt-[40%]">{card.alt}</h1>
+                      <div className="flex items-center justify-between">
+                         <h1 className="text-[12px]">{card.tag}</h1>
+                         <h1 className="text-[12px]">узнать больше</h1>
+                      </div>
                     </div>
                   </div>
-                  
-                  <div className="p-4">
-                    <h3 className="font-bold text-xl mb-2">КРЫМ</h3>
-                    
-                    <div className="flex justify-between items-center mb-3">
-                      <span className="text-2xl font-bold text-gray-900">7x134</span>
-                      <span className="text-gray-500 line-through text-sm">5 x</span>
-                    </div>
-                    
-                    <div className="text-sm text-gray-600 mb-4 space-y-1">
-                      <p>Море и горы</p>
-                      <p>Все включено</p>
-                      <p>Экскурсии</p>
-                    </div>
-                    
-                    <div className="flex justify-between items-center">
-                      <span className="text-green-600 font-bold text-lg">28 000 ₽</span>
-                      <span className="text-blue-600 text-sm">Спецпредложение</span>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </div>
