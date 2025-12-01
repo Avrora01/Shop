@@ -8,7 +8,9 @@ import d from "./assets/image/1 (3).jpg";
 import e from "./assets/image/1 (5).jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar } from "swiper/modules";
-
+import { EffectCoverflow } from "swiper/modules";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
 // Импорты CSS
 import "swiper/css";
 import "swiper/css/scrollbar";
@@ -209,14 +211,72 @@ const App = () => {
 
                       <h1 className="mt-[40%]">{card.alt}</h1>
                       <div className="flex items-center justify-between">
-                         <h1 className="text-[12px]">{card.tag}</h1>
-                         <h1 className="text-[12px]">узнать больше</h1>
+                        <h1 className="text-[12px]">{card.tag}</h1>
+                        <h1 className="text-[12px]">узнать больше</h1>
                       </div>
                     </div>
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
+          </div>
+          <div className="w-full py-20 overflow-hidden">
+            <h1 className="text-[34px] font-bold uppercase mb-2 text-center">
+              Популярные отели
+            </h1>
+            <p className="text-center text-[14px] text-gray-500 uppercase mb-10">
+              Уют и роскошь в лучших отелях мира
+            </p>
+
+            <div className="mx-auto overflow-visible">
+              <Swiper
+                effect={"coverflow"}
+                centeredSlides={true}
+                grabCursor={true}
+                slidesPerView={"auto"}
+                spaceBetween={100}
+                initialSlide={Math.floor(tourCards.length / 2)} // ← Сразу средний!
+                coverflowEffect={{
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 150,
+                  modifier: 1.5,
+                  slideShadows: false,
+                }}
+                scrollbar={{
+                  draggable: true,
+                }}
+                modules={[EffectCoverflow, Scrollbar]}
+                className="overflow-visible"
+              >
+                {tourCards.map((card) => (
+                  <SwiperSlide
+                    key={card.id}
+                    className="w-[400px] h-[400px] rounded-2xl overflow-hidden relative"
+                    style={{ borderRadius: "30px" }}
+                  >
+                    <img
+                      src={card.image}
+                      alt={card.alt}
+                      className="w-full h-full object-cover"
+                    />
+
+                    <div className="absolute inset-0 bg-black/20"></div>
+
+                    <div className="absolute bottom-5 left-5 text-white">
+                      <h1 className="text-[26px] font-semibold">{card.alt}</h1>
+                      <p className="text-[14px]">{card.tag}</p>
+                    </div>
+
+                    <div className="absolute top-5 right-5 bg-white/80 backdrop-blur-xl px-4 py-1 rounded-full">
+                      <h1 className="text-black text-[18px] font-semibold">
+                        {card.day}
+                      </h1>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
           </div>
         </div>
       </div>
