@@ -11,12 +11,13 @@ import "swiper/css/pagination";
 import "swiper/css";
 import "swiper/css/scrollbar";
 import { useEffect, useRef, useState } from "react";
-import type { CardType, HotelType } from "./types/cardType";
+import type { CardType, HotelType, HotelReviewType } from "./types/cardType";
 import { Swiper as SwiperType } from "swiper";
 
 const App = () => {
   const [tourCards, setTourCards] = useState<CardType[]>([]);
   const [hotels, setHotels] = useState<HotelType[]>([]);
+  const [reviews, setReviews] = useState<HotelReviewType[]>([]);
   const swiperRef = useRef<SwiperType | null>(null);
 
   useEffect(() => {
@@ -24,25 +25,29 @@ const App = () => {
       .then((res) => res.json())
       .then((data) => setTourCards(data));
   }, []);
+
   useEffect(() => {
     fetch("http://localhost:3001/hotels")
       .then((res) => res.json())
       .then((data) => setHotels(data));
   }, []);
 
-  // Используем useEffect для переключения на средний слайд после загрузки данных
   useEffect(() => {
-    if (tourCards.length > 0 && swiperRef.current) {
-      const middleIndex = Math.floor(tourCards.length / 2);
-      swiperRef.current.slideTo(middleIndex);
-    }
-  }, [tourCards]);
+    fetch("http://localhost:3001/hotelReviews")
+      .then((res) => res.json())
+      .then((data) => setReviews(data.hotelReviews || data));
+  }, []);
+
   useEffect(() => {
     if (hotels.length > 0 && swiperRef.current) {
       const middleIndex = Math.floor(hotels.length / 2);
       swiperRef.current.slideTo(middleIndex);
     }
   }, [hotels]);
+
+  // Массив цветов для фона карточек отзывов
+
+
   return (
     <>
       <div className="">
@@ -205,8 +210,8 @@ const App = () => {
         </div>
       </div>
 
-      <div className=" overflow-hidden min-h-[800px] bg-[#F8F8F8]">
-        <div className="pt-[4%]">
+      <div className="overflow-hidden min-h-[800px] bg-[#F8F8F8]">
+        <div className="pt-[1%]">
           <h1 className="text-[34px] font-bold uppercase mb-2 text-center">
             Популярные отели
           </h1>
@@ -224,7 +229,6 @@ const App = () => {
             spaceBetween={100}
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
-              // Если данные уже загружены, сразу переключаем на средний
               if (hotels.length > 0) {
                 const middleIndex = Math.floor(hotels.length / 2);
                 setTimeout(() => {
@@ -283,8 +287,144 @@ const App = () => {
         <div className="bg-white min-h-[150px] w-[70%] m-auto rounded-2xl"></div>
       </div>
 
+      {/* СЕКЦИЯ: Отзывы путешественников */}
       <div className="min-h-[600px]">
-                
+        
+        <div className="pt-[3%]">
+          <h1 className="text-[34px] font-bold uppercase text-center">
+            ОТЗЫВЫ
+          </h1>
+          <h2 className="text-center text-[14px] text-gray-500 uppercase mb-10">
+            ВПЕЧАТЛЕНИЯ НАШИХ ПУТЕШЕСТВЕННИКОВ
+          </h2>
+        </div>
+
+        {/* Swiper для отзывов */}
+        <div className="w-[80%] ml-auto mt-[3%]">
+          <Swiper
+            spaceBetween={20}
+            slidesPerView={3}
+            modules={[Scrollbar]}
+            scrollbar={{
+              draggable: true,
+              hide: false,
+              snapOnRelease: true,
+            }}
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+                spaceBetween: 10,
+              },
+              768: {
+                slidesPerView: 2,
+                spaceBetween: 15,
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+            }}
+          >
+            {reviews.map((review) => (
+              <SwiperSlide key={review.id}>
+                {/* Карточка отзыва с цветным фоном */}
+                <div
+                  className={`relative rounded-lg bg-[#F8F8F8] shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 border border-gray-200 h-[350px] w-full`}
+                >
+                  {/* Верхняя часть с информацией о пользователе */}
+                  <div className="p-6">
+                    {/* Аватар пользователя */}
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-md">
+                        <img
+                          src={review.userAvatar}
+                          alt={review.userName}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h1 className="text-[18px] font-bold text-gray-800 uppercase">
+                          {review.userName}
+                        </h1>
+                        <p className="text-[12px] text-gray-600">
+                          Отдыхал в отеле {review.hotelId}
+                        </p>
+                        <p className="text-[11px] text-gray-500">
+                          {review.date}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Разделитель */}
+                    <div className="border-t border-gray-300 my-3"></div>
+
+                    {/* Звезды рейтинга */}
+                    <div className="flex justify-center mb-3">
+                      {[...Array(5)].map((_, i) => (
+                        <span
+                          key={i}
+                          className={`text-2xl ${
+                            i < review.rating
+                              ? "text-yellow-500"
+                              : "text-gray-300"
+                          }`}
+                        >
+                          ★
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Заголовок отзыва */}
+                    <h3 className="text-[16px] font-semibold text-gray-800 text-center mb-3">
+                      {review.rating === 5
+                        ? "Невероятное путешествие!"
+                        : review.rating === 4
+                        ? "Отличный отдых!"
+                        : "Хороший отель"}
+                    </h3>
+
+                    {/* Текст отзыва */}
+                    <div className="h-[120px] overflow-hidden">
+                      <p className="text-[14px] text-gray-700 leading-relaxed italic">
+                        "
+                        {review.comment.length > 150
+                          ? review.comment.substring(0, 150) + "..."
+                          : review.comment}
+                        "
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Нижняя часть с кнопкой и лайками */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-white/80 to-transparent">
+                    <div className="flex items-center justify-between">
+                      {/* Лайки и дизлайки */}
+                      <div className="flex gap-3">
+                        <div className="flex items-center gap-1">
+                          <span className="text-green-600 text-lg">👍</span>
+                          <span className="text-[12px] text-gray-600">
+                            {review.likes}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <span className="text-red-600 text-lg">👎</span>
+                          <span className="text-[12px] text-gray-600">
+                            {review.dislikes}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Кнопка */}
+                      <button className="text-[12px] bg-white border border-gray-300 px-4 py-2 rounded-full hover:bg-gray-50 hover:border-gray-400 transition text-gray-700">
+                        читать полностью
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
     </>
   );
