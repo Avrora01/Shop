@@ -1,57 +1,200 @@
 {
-  "product": [
+  "tourCards": [
     {
       "id": 1,
-      "name": "Summer Dress",
-      "price": 49.99,
-      "category": "women",
-      "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400",
-      "description": "Beautiful summer dress for women"
+      "image": "https://th.bing.com/th/id/R.562665a2c62e6402493758b376c6ef5e?rik=MKJDQjEXTS7Kmg&pid=ImgRaw&r=0",
+      "alt": "МОСКВА",
+      "day": "10 дней",
+      "finalPrice": "35 000₽",
+      "tag": "10 до 20 ноября"
     },
     {
       "id": 2,
-      "name": "Men's T-Shirt",
-      "price": 29.99,
-      "category": "men",
-      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400",
-      "description": "Comfortable cotton t-shirt for men"
+      "image": "https://th.bing.com/th/id/R.be79ea84447e35efa71370cc464dacfc?rik=e4JKY2XpAWsPxQ&riu=http%3a%2f%2ftut1.ru%2fuploads%2fposts%2f2017-12%2f1513177208_150712537.jpg&ehk=3Y4b8PTz1HX8OJbsqKl9teAGEQF1%2fdSBFhXSZc2PtMg%3d&risl=&pid=ImgRaw&r=0",
+      "alt": "САНКТ-ПЕТЕРБУРГ",
+      "day": "15 дней",
+      "finalPrice": "25 000 ₽",
+      "tag": "12 до 16 марта"
     },
     {
       "id": 3,
-      "name": "Kids Sneakers",
-      "price": 39.99,
-      "category": "kids",
-      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",
-      "description": "Colorful sneakers for kids"
+      "image": "https://th.bing.com/th/id/R.bb94a7d5bc8da5141690898559dd0b72?rik=%2foLi3W6kaPNGmA&pid=ImgRaw&r=0",
+      "alt": "СОЧИ",
+      "day": "15 дней",
+      "finalPrice": "35 000 ₽",
+      "tag": "5 до 11 февраля"
     },
     {
       "id": 4,
-      "name": "Women's Handbag",
-      "price": 79.99,
-      "category": "women",
-      "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400",
-      "description": "Elegant handbag for women"
+      "image": "https://tse2.mm.bing.net/th/id/OIP.BU7aePp_FjEThyZM7mic9wHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "alt": "КАЗАНЬ",
+      "day": "15 дней",
+      "finalPrice": "18 000 ₽",
+      "tag": "16 до 22 ноября"
     },
     {
       "id": 5,
-      "name": "Men's Jeans",
-      "price": 59.99,
-      "category": "men",
-      "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400",
-      "description": "Classic denim jeans for men"
+      "image": "https://mediacratia.ru/wp-content/uploads/2019/10/krym.jpg",
+      "alt": "КРЫМ",
+      "day": "7 дней",
+      "finalPrice": "28 000 ₽",
+      "tag": "21 до 28 ноября"
+    }
+  ],
+
+  "hotels": [
+    {
+      "id": 1,
+      "name": "JW Marriott Marquis Dubai",
+      "image": "https://tse1.mm.bing.net/th/id/OIP.lbwGJl1KRLpzq_krV4skoQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "alt": "JW Marriott Marquis Dubai Hotel",
+      "stars": 5,
+      "price": "от 25 000 ₽/ночь"
+    },
+    {
+      "id": 2,
+      "name": "Ritz-Carlton Moscow",
+      "image": "https://s0.rbk.ru/v6_top_pics/media/img/8/06/754897423639068.png",
+      "alt": "Ritz-Carlton Moscow Hotel",
+      "stars": 5,
+      "price": "от 18 000 ₽/ночь"
+    },
+    {
+      "id": 3,
+      "name": "Villa Flori Como",
+      "image": "https://th.bing.com/th/id/R.269cfd27cbd57324c56e91b1bafd21bb?rik=MgFohJJ8RZYfBg&pid=ImgRaw&r=0",
+      "alt": "Villa Flori Como Lake View",
+      "stars": 5,
+      "price": "от 35 000 ₽/ночь"
+    },
+    {
+      "id": 4,
+      "name": "Ikos Dassia",
+      "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1d/d9/c1/66/caption.jpg?w=1400&h=-1&s=1",
+      "alt": "Ikos Dassia Resort Corfu",
+      "stars": 5,
+      "price": "от 20 000 ₽/ночь"
+    },
+    {
+      "id": 5,
+      "name": "JW Marriott Marquis Miami",
+      "image": "https://cache.marriott.com/content/dam/marriott-renditions/MIAMJ/miamj-king-1921-hor-wide.jpg?output-quality=70&interpolation=progressive-bilinear&downsize=1336px:*",
+      "alt": "JW Marriott Marquis Miami Beach",
+      "stars": 5,
+      "price": "от 22 000 ₽/ночь"
+    }
+  ],
+
+  "hotelReviews": [
+    {
+      "id": 1,
+      "hotelId": 1,
+      "userName": "Александр Иванов",
+      "userAvatar": "https://randomuser.me/api/portraits/men/1.jpg",
+      "rating": 5,
+      "date": "15 ноября 2024",
+      "comment": "Отличный отель! Сервис на высшем уровне, номера просторные и чистые. Вид из окна потрясающий. Обязательно вернусь!",
+      "likes": 24,
+      "dislikes": 2
+    },
+    {
+      "id": 2,
+      "hotelId": 1,
+      "userName": "Мария Петрова",
+      "userAvatar": "https://randomuser.me/api/portraits/women/2.jpg",
+      "rating": 4,
+      "date": "10 ноября 2024",
+      "comment": "Хороший отель, но завтраки могли бы быть разнообразнее. Персонал очень вежливый и внимательный.",
+      "likes": 18,
+      "dislikes": 1
+    },
+    {
+      "id": 3,
+      "hotelId": 2,
+      "userName": "Дмитрий Смирнов",
+      "userAvatar": "https://randomuser.me/api/portraits/men/3.jpg",
+      "rating": 5,
+      "date": "5 декабря 2024",
+      "comment": "Лучший отель в котором я останавливался! Все продумано до мелочей. Спа и бассейн - просто сказка.",
+      "likes": 32,
+      "dislikes": 0
+    },
+    {
+      "id": 4,
+      "hotelId": 2,
+      "userName": "Екатерина Волкова",
+      "userAvatar": "https://randomuser.me/api/portraits/women/4.jpg",
+      "rating": 5,
+      "date": "28 ноября 2024",
+      "comment": "Идеальное место для романтического отпуска. Ужин на террасе с видом на город незабываем!",
+      "likes": 29,
+      "dislikes": 1
+    },
+    {
+      "id": 5,
+      "hotelId": 3,
+      "userName": "Анна Козлова",
+      "userAvatar": "https://randomuser.me/api/portraits/women/5.jpg",
+      "rating": 4,
+      "date": "20 ноября 2024",
+      "comment": "Красивая вилла, отличное расположение. Персонал очень дружелюбный. Рекомендую для спокойного отдыха.",
+      "likes": 15,
+      "dislikes": 0
     },
     {
       "id": 6,
-      "name": "Kids Jacket",
-      "price": 45.99,
-      "category": "kids",
-      "image": "https://images.unsplash.com/photo-1509005084666-3cbc75184cbb?w=400",
-      "description": "Warm jacket for children"
+      "hotelId": 3,
+      "userName": "Сергей Николаев",
+      "userAvatar": "https://randomuser.me/api/portraits/men/6.jpg",
+      "rating": 5,
+      "date": "12 декабря 2024",
+      "comment": "Вид на озеро просто потрясающий! Завтраки свежие и вкусные. Обслуживание на высоте.",
+      "likes": 21,
+      "dislikes": 1
+    },
+    {
+      "id": 7,
+      "hotelId": 4,
+      "userName": "Ольга Морозова",
+      "userAvatar": "https://randomuser.me/api/portraits/women/7.jpg",
+      "rating": 5,
+      "date": "8 декабря 2024",
+      "comment": "Все включено - и правда все! Питание разнообразное, напитки качественные. Детям очень понравился аквапарк.",
+      "likes": 27,
+      "dislikes": 2
+    },
+    {
+      "id": 8,
+      "hotelId": 4,
+      "userName": "Иван Федоров",
+      "userAvatar": "https://randomuser.me/api/portraits/men/8.jpg",
+      "rating": 4,
+      "date": "30 ноября 2024",
+      "comment": "Отличный семейный отдых. Пляж чистый, лежаки удобные. Единственное - Wi-Fi в номере был слабоват.",
+      "likes": 19,
+      "dislikes": 3
+    },
+    {
+      "id": 9,
+      "hotelId": 5,
+      "userName": "Наталья Соколова",
+      "userAvatar": "https://randomuser.me/api/portraits/women/9.jpg",
+      "rating": 5,
+      "date": "25 ноября 2024",
+      "comment": "Современный дизайн, удобное расположение. Бизнес-ланчи в ресторане просто великолепны!",
+      "likes": 22,
+      "dislikes": 0
+    },
+    {
+      "id": 10,
+      "hotelId": 5,
+      "userName": "Павел Лебедев",
+      "userAvatar": "https://randomuser.me/api/portraits/men/10.jpg",
+      "rating": 4,
+      "date": "18 декабря 2024",
+      "comment": "Хороший деловой отель. Конференц-залы оборудованы по последнему слову техники. Завтраки достойные.",
+      "likes": 16,
+      "dislikes": 1
     }
-  ],
-   "categories": [
-    { "id": "men", "name": "Men", "image": "https://images.unsplash.com/photo-1520975916090-3105956dac38?w=400" },
-    { "id": "women", "name": "Women", "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400" },
-    { "id": "kids", "name": "Kids", "image": "https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?w=400" }
   ]
 }
