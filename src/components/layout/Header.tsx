@@ -1,29 +1,62 @@
-// interface Product {
-//   id: number;
-//   name: string;
-//   price: number;
-//   image: string;
-//   description: string;
-// }
+import { Link, useLocation } from 'react-router-dom'
+import { LocationEditIcon, Menu, Phone } from 'lucide-react'
+import logo from '../../assets/image/logo (1) 1.png'
 
-// interface ProductCardProps {
-//   product: Product;
-// }
+const Header = () => {
+  const location = useLocation()
+  
+  const isActive = (path: string) => {
+    return location.pathname === path ? 'text-[#EC1C24] font-bold' : 'text-gray-800'
+  }
 
-// export default function ProductCard({ product }: ProductCardProps) {
-//   return (
-//     <div className="border rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow">
-//       <img 
-//         src={product.image} 
-//         alt={product.name}
-//         className="w-full h-48 object-cover mb-4 rounded"
-//       />
-//       <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
-//       <p className="text-gray-600 mb-2">{product.description}</p>
-//       <p className="text-xl font-bold text-blue-600">${product.price}</p>
-//       <button className="mt-3 w-full bg-black text-white py-2 rounded hover:bg-gray-800">
-//         Добавить в корзину
-//       </button>
-//     </div>
-//   );
-// }
+  return (
+    <header className="sticky top-0 z-50 bg-white shadow-md">
+      <div className="flex justify-around items-center py-4">
+        <Link to="/">
+          <img src={logo} alt="Логотип" className="h-10" />
+        </Link>
+        
+        <nav className="flex gap-8 items-center">
+          <Link 
+            to="/" 
+            className={`uppercase text-[14px] cursor-pointer hover:text-[#EC1C24] transition ${isActive('/')}`}
+          >
+            Главная
+          </Link>
+          <Link 
+            to="/hotels" 
+            className={`uppercase text-[14px] cursor-pointer hover:text-[#EC1C24] transition ${isActive('/hotels')}`}
+          >
+            Отели
+          </Link>
+          <Link 
+            to="/reviews" 
+            className={`uppercase text-[14px] cursor-pointer hover:text-[#EC1C24] transition ${isActive('/reviews')}`}
+          >
+            Отзывы
+          </Link>
+        </nav>
+        
+        <div className="flex items-center gap-4">
+          <button className="uppercase rounded-full border border-[#6A6A6A] text-[12px] px-4 py-2 hover:bg-[#EC1C24] hover:text-white transition">
+            оставить заявку
+          </button>
+          <Phone
+            size={20}
+            className="text-[#000000] cursor-pointer hover:text-[#EC1C24]"
+          />
+          <LocationEditIcon
+            size={20}
+            className="text-[#000000] cursor-pointer hover:text-[#EC1C24]"
+          />
+          <Menu
+            size={20}
+            className="text-[#000000] cursor-pointer hover:text-[#EC1C24]"
+          />
+        </div>
+      </div>
+    </header>
+  )
+}
+
+export default Header
