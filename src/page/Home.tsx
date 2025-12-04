@@ -1,5 +1,4 @@
 import bgImage from "../assets/image/wallpapers 2.png";
-import w from "../assets/image/Mask group.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar } from "swiper/modules";
 import { EffectCoverflow } from "swiper/modules";
@@ -253,13 +252,67 @@ const HomePage = () => {
       </div>
 
       <div
-        className="min-h-[500px] bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${w})` }}
+        className="min-h-[500px] bg-cover bg-center bg-no-repeat relative flex items-end pb-12 px-4"
+        style={{
+          backgroundImage: `url(https://media.holafly.com/sites/1/2023/11/things-to-do-in-dubai-1024x523.jpg)`,
+        }}
       >
-        <div className="pt-[18%]"></div>
-        <div className="bg-white min-h-[150px] w-[70%] m-auto rounded-2xl"></div>
-      </div>
+        {/* Белая карточка */}
+        <div className="bg-white rounded-2xl shadow-2xl p-8 max-w-6xl w-full mx-auto">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8">
+            {/* Левая часть - заголовок */}
+            <div className="flex-shrink-0">
+              <h2 className="text-2xl md:text-3xl font-bold uppercase leading-tight">
+                НЕ ОПРЕДЕЛИЛИСЬ
+                <br />
+                <span className="italic">С ВЫБОРОМ?</span>
+              </h2>
+            </div>
 
+            {/* Средняя часть - текст */}
+            <div className="flex-shrink-0">
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Оставьте свой номер
+                <br />
+                и наш специалист поможет
+                <br />
+                вам с подбором тура
+              </p>
+            </div>
+
+            {/* Правая часть - форма */}
+            <div className="">
+              <input
+                type="text"
+                placeholder="Имя"
+                className="border-b-2 border-gray-300 focus:border-red-500 outline-none px-2 py-2 w-full sm:w-32 text-sm bg-transparent"
+              />
+              <br />
+              <input
+                type="tel"
+                placeholder="Телефон"
+                className="border-b-2 border-gray-300 focus:border-red-500 outline-none px-2 py-2 w-full sm:w-32 text-sm bg-transparent"
+              />
+            </div>
+            <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full uppercase text-sm font-semibold flex items-center justify-center gap-2 transition-colors whitespace-nowrap shadow-lg">
+              ОТПРАВИТЬ
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
       {/* СЕКЦИЯ: Отзывы путешественников */}
       <div className="min-h-[700px]">
         <div className="pt-[5%]">
@@ -622,22 +675,22 @@ const HomePage = () => {
               className="border-b-2 border-gray-300 focus:border-red-500 outline-none px-2 py-2 w-32 text-sm"
             />
           </div>
-            <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full uppercase text-sm font-semibold flex items-center gap-2 transition-colors">
-              ОТПРАВИТЬ
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
-                />
-              </svg>
-            </button>
+          <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full uppercase text-sm font-semibold flex items-center gap-2 transition-colors">
+            ОТПРАВИТЬ
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </button>
         </div>
       </div>
     </>
