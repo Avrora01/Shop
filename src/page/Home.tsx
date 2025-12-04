@@ -311,7 +311,7 @@ const HomePage = () => {
                         <img
                           src={review.userAvatar}
                           alt={review.userName}
-                          className="w-full h-full object-cover"        
+                          className="w-full h-full object-cover"
                         />
                       </div>
                       <div>
@@ -399,12 +399,9 @@ const HomePage = () => {
         </div>
       </div>
       {/* Секция Новостей */}
-      <div className="min-h-[1000px] bg-[#F8F8F8]">
-   
+      <div className="min-h-[1100px] bg-[#F8F8F8]">
         <div className="pt-[4%]">
-          <h1 className="text-[34px] font-bold uppercase ml-[15%]">
-            новости
-          </h1>
+          <h1 className="text-[34px] font-bold uppercase ml-[15%]">новости</h1>
           <p className="text-[#1C1C1C] text-[14px] uppercase font-extralight text-lg ml-[15%]">
             события в мире туризма
           </p>
@@ -509,6 +506,138 @@ const HomePage = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="min-h-[900px] px-4 md:px-8 lg:px-16">
+        <div className="pt-[1%]">
+          <h1 className="text-[34px] font-bold uppercase text-center">О нас</h1>
+          <h2 className="text-center text-[14px] text-gray-500 uppercase mb-10">
+            Вдохновляем мир на путешествия
+          </h2>
+        </div>
+
+        {/* Первая секция - Текст и изображение */}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          <div className="flex flex-col justify-center">
+            <h3 className="text-4xl font-bold">
+              МЫ
+              <span className="text-base font-normal ml-2">
+                — команда профессионалов, влюблённых в искусство путешествий
+              </span>
+            </h3>
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Наша история началась с мечты о том, чтобы сделать каждое
+              путешествие незабываемым, каждое приключение уникальным.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              Наша миссия — сделать путешествия доступными и незабываемыми. Мы
+              предлагаем вам не просто туры, а волшебные истории, которые будут
+              жить в вашем сердце навсегда. Независимо от того, ищете ли вы
+              релакс на пляже, культурные изыски или экстремальные приключения,
+              мы создадим для вас оптимальное путешествие, подстроенное под ваши
+              уникальные желания.
+            </p>
+          </div>
+          <div className="flex items-center justify-end">
+            <img
+              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=400&fit=crop"
+              alt="Travel professional"
+              className="rounded-lg shadow-lg w-full max-w-md"
+            />
+          </div>
+        </div>
+
+        {/* Вторая секция - Изображение и текст */}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="flex items-center justify-center order-2 lg:order-1">
+            <img
+              src="https://images.unsplash.com/photo-1540541338287-41700207dee6?w=600&h=400&fit=crop"
+              alt="Tropical destination"
+              className="rounded-lg shadow-lg w-full max-w-md"
+            />
+          </div>
+          <div className=" justify-center order-1 lg:order-2">
+            <p className="text-gray-700 leading-relaxed mb-4">
+              Мы гордимся нашей командой опытных специалистов, каждый из которых
+              разделяет страсть к туризму и стремление сделать ваше путешествие
+              незабываемым. Мы внимательно следим за последними тенденциями в
+              индустрии, чтобы предложить вам только лучшие и самые актуальные
+              варианты.
+            </p>
+          </div>
+          <div className=" justify-center order-1 lg:order-2">
+            <p className="text-gray-700 leading-relaxed">
+              Присоединяйтесь к нам в этом захватывающем путешествии! Мы готовы
+              подарить вам моменты радости, вдохновения и удивления в каждом
+              уголке нашего удивительного мира.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        className="min-h-[400px] bg-cover bg-center bg-no-repeat relative flex items-center justify-center px-4"
+        style={{
+          backgroundImage: `url('https://images.hdqwalls.com/download/early-morning-mountains-scenery-8n-2560x1700.jpg')`,
+        }}
+      >
+        {/* Overlay для лучшей читаемости */}
+        <div className="absolute inset-0 bg-black/10"></div>
+
+        {/* Контент карточка */}
+        <div className="relative bg-white rounded-2xl shadow-2xl p-8 max-w-6xl w-full flex items-center justify-between gap-8">
+          {/* Левая часть - заголовок */}
+          <div className="flex-shrink-0">
+            <h2 className="text-2xl font-bold uppercase mb-1">
+              МЫ ПОМОЖЕМ СОЗДАТЬ
+            </h2>
+            <h2 className="text-2xl font-bold uppercase italic">
+              ВАШЕ ПУТЕШЕСТВИЕ
+            </h2>
+          </div>
+
+          {/* Средняя часть - текст */}
+          <div className="flex-shrink-0">
+            <p className="text-sm text-gray-600">
+              Оставьте заявку
+              <br />
+              на подбор идеального
+              <br />
+              путешествия
+            </p>
+          </div>
+
+          {/* Правая часть - форма */}
+          <div className="">
+            <input
+              type="text"
+              placeholder="Имя"
+              className="border-b-2 border-gray-300 focus:border-red-500 outline-none px-2 py-2 w-32 text-sm"
+            />
+            <br />
+            <input
+              type="tel"
+              placeholder="Телефон"
+              className="border-b-2 border-gray-300 focus:border-red-500 outline-none px-2 py-2 w-32 text-sm"
+            />
+          </div>
+            <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full uppercase text-sm font-semibold flex items-center gap-2 transition-colors">
+              ОТПРАВИТЬ
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                />
+              </svg>
+            </button>
         </div>
       </div>
     </>
