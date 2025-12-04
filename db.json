@@ -196,5 +196,38 @@
       "likes": 16,
       "dislikes": 1
     }
+  ],
+  "news":[
+    {
+      "id":1,
+      "img" :"https://www.famitica.com/wp-content/uploads/2023/10/CosacercareinunHoteloResortFamilyFriendly-scaled.webp",
+      "title":"отдых с детьми:о чем нужно помнить в путешествии"
+    },
+    {
+      "id":2,
+      "img" :"https://cms.yesim.app/uploads/pixelcut_export_22_e516969bbb.jpeg",
+      "title":"ТОП-10 уникальных и завораживающих мест в ОАЭ"
+    },
+    {
+      "id":3,
+      "img" :"https://klike.net/uploads/posts/2022-09/1662088411_j-2.jpg",
+      "title":"Отдых, близкий к природе и экологии"
+    },
+    {
+      "id":4,
+      "img" :"https://th.bing.com/th/id/R.8b593ac4aa11214e3794a52697bed431?rik=EWjSJtZCd%2f4aOQ&pid=ImgRaw&r=0",
+      "title":"богатство культурных и исторических сокровищ разных стран"
+    },
+    {
+      "id":5,
+      "img" :"https://beauty-upgrade.tw/wp-content/uploads/2020/01/william.jpg",
+      "title":"Как сделать путешествие незабываемым для всех"
+    },
+    {
+      "id":6,
+      "img" :"https://abrakadabra.fun/uploads/posts/2022-02/1645574038_4-abrakadabra-fun-p-zima-gori-4.jpg",
+      "title":"путешествия, которые приведут вас в мир высот, глубин и скорости"
+    }
+    
   ]
 }
